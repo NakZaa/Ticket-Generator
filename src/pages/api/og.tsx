@@ -1,7 +1,6 @@
 import { ImageResponse } from "@vercel/og"
 import { NextApiRequest, NextApiResponse } from "next"
 
-
 export const config = {
   runtime: "experimental-edge",
 }
@@ -9,29 +8,23 @@ export const config = {
 const RobotoSlab = fetch(new URL("../../fonts/RobotoSlab-Bold.ttf", import.meta.url)).then((res) => res.arrayBuffer())
 
 const RATIO = 1.3
-const SIZE = ~~(180 * RATIO)
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const url = new URL(req.url ?? "")
-    const uid = url.searchParams.get("uid") ?? ""
     const name = url.searchParams.get("name") ?? ""
-    const type = ["daisy", "forget_me_not", "rose", "sunflower", "tulip"].includes(url.searchParams.get("type") ?? "")
-      ? (url.searchParams.get("type") as string)
-      : "daisy"
 
     const RobotoSlabData = await RobotoSlab
-
 
     return new ImageResponse(
       (
         <div tw="bg-[#FFF2F4] flex justify-center items-center w-full h-full">
           <div
-            style={{ fontFamily: "Roboto Slab", width: 620 * RATIO, height: 1300 * RATIO }}
+            style={{ fontFamily: "Roboto Slab", width: 620 * RATIO, height: 920 * RATIO }}
             tw="text-6xl font-bold flex flex-col items-center justify-center text-center relative"
           >
             <div tw="absolute flex top-0 left-0">
-              <img alt="bg" height={1300 * RATIO} width={620 * RATIO} src={`${url.origin}/assets/bg.png`} />
+              <img alt="bg" height={920 * RATIO} width={620 * RATIO} src={`${url.origin}/assets/bg.png`} />
             </div>
             <div
               style={{

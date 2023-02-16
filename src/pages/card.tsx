@@ -47,6 +47,13 @@ export default function Card() {
 
             <section className="grid grid-cols-1 mt-4 max-w-xs w-full">
                 <Button
+                    onClick={() => {
+                        // download from /api/og
+                        const a = document.createElement("a")
+                        a.href = `/api/og?name=${auth?.user?.nickname}`
+                        a.download = "niti.png"
+                        a.click()
+                    }}
                     type="white"
                     className="shadow-md px-0 py-3 w-full flex gap-1 justify-center items-center"
                 >
