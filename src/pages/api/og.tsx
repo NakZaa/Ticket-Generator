@@ -1,7 +1,6 @@
 import { ImageResponse } from "@vercel/og"
 import { NextApiRequest, NextApiResponse } from "next"
 
-const qrcode = require("yaqrcode")
 
 export const config = {
   runtime: "experimental-edge",
@@ -10,7 +9,6 @@ export const config = {
 const RobotoSlab = fetch(new URL("../../fonts/RobotoSlab-Bold.ttf", import.meta.url)).then((res) => res.arrayBuffer())
 
 const RATIO = 1.3
-const FLOWER_SIZE = ~~(150 * RATIO)
 const SIZE = ~~(180 * RATIO)
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -24,9 +22,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const RobotoSlabData = await RobotoSlab
 
-    const base64 = qrcode(uid, {
-      size: SIZE,
-    })
 
     return new ImageResponse(
       (
@@ -55,18 +50,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               >
                 {name.length <= 18 ? name : name.slice(0, 18) + "..."}
               </p>
-            </div>
-            <div style={{ zIndex: "50", bottom: 90 * RATIO, left: 75 * RATIO }} tw="flex absolute">
-              <img alt="QR" height={SIZE} src={base64} width={SIZE} />
-            </div>
-
-            <div style={{ zIndex: "50", bottom: 130 * RATIO, right: 82.5 * RATIO }} tw="flex absolute">
-              <img
-                alt="flower"
-                height={FLOWER_SIZE * RATIO}
-                src={`${url.origin}/assets/flower/${type}.png`}
-                width={FLOWER_SIZE * RATIO}
-              />
             </div>
           </div>
         </div>
