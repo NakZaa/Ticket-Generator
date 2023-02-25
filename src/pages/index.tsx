@@ -1,56 +1,44 @@
-import { LinkButton } from "@/components/common/Button"
-import { easeInOut, motion } from "framer-motion"
-import React, { useEffect } from "react"
-import { useState } from "react"
 import { useAuth } from "@/lib/auth"
+import { AnimationWrapper, PageRenderer } from "@/components/welcome/WelcomePage"
+
+import { useCallback, useEffect, useState } from "react"
+import clsx from "clsx"
 import { useRouter } from "next/router"
-import Link from "next/link"
 
 
-function WelcomeText() {
-    const initText = "Click Me"
-    const [text, setText] = useState(initText)
-    const auth = useAuth()
-    const router = useRouter()
+export default function Welcome() {
+  const [page, setPage] = useState(0)
 
-    useEffect(() => {
-        auth?.requireNotUser("/card")
-    }, [router])
+  const auth = useAuth()
+  const router = useRouter()
 
-    return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={easeInOut}
-            className="flex flex-col items-center justify-center gap-6 absolute z-30 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-full"
-        >
-            <div>
-                <h1 className="text-[2.7rem] text-center">Welcome!</h1>
-                <p className="text-center text-[1.2rem] sm:text-lg mt-[7px]">Saparp</p>
-            </div>
+  useEffect(() => {
+    auth?.requireNotCred("/registerform")
+    auth?.requireNotUser("/card")
+}, [router])
 
-            <LinkButton
-                href="/register"
-                type="primary"
-                className="text-2xl sm:text-lg py-2 px-14"
-                onMouseOver={() => {
-                    setText("Let's Go!")
-                }}
-                onMouseLeave={() => {
-                    setText(initText)
-                }}
-            >
-                {text}
-            </LinkButton>
-        </motion.div>
-    )
+  const getBG = useCallback(
+    (page: number) => {
+      if (page === 0) return "bg-black text-white"
+      else if (page >= 1 && page <= 4) return "bg-black text-white"
+      else if (page >= 5 ) return "bg-white text-black"
+
+      return "bg-black text-white"
+    },
+    [page]
+  )
+
+
+  return (
+    <div className={clsx("h-screen overflow-hidden", getBG(page))}>
+      <main className="mx-auto h-full relative max-w-lg font-display">
+        <AnimationWrapper page={page}>
+          <PageRenderer
+            page={page}
+            setPage={setPage}
+          />
+        </AnimationWrapper>
+      </main>
+    </div>
+  )
 }
-
-export default function Index() {
-    return (
-        <div className="font-display min-h-screen w-full font-semibold overflow-hidden">
-            <main className="mx-auto max-w-lg relative min-h-screen"><WelcomeText /></main>
-        </div>
-    );
-};

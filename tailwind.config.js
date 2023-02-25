@@ -91,6 +91,10 @@ module.exports = {
         "IBM Plex Sans Thai",
         ...defaultTheme.fontFamily.sans,
       ],
+      welcome: [
+      "Wild Horse",
+      ...defaultTheme.fontFamily.serif,
+    ],
     },
   },
   plugins: [require("@tailwindcss/typography")],

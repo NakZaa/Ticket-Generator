@@ -9,6 +9,8 @@ export interface UserCreateBody {
   nickname: string
   status: "student" | "alumni" | "participant"
   year: number
+  syear: string
+  background: number
 }
 
 export interface User extends UserCreateBody {

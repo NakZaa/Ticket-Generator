@@ -13,6 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const url = new URL(req.url ?? "")
     const name = url.searchParams.get("name") ?? ""
+    const background = url.searchParams.get("background") ?? ""
+
+    console.log(name, background)
 
     const RobotoSlabData = await RobotoSlab
 
@@ -20,16 +23,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       (
         <div tw="bg-[#FFF2F4] flex justify-center items-center w-full h-full">
           <div
-            style={{ fontFamily: "Roboto Slab", width: 620 * RATIO, height: 920 * RATIO }}
+            style={{ fontFamily: "Roboto Slab", width: 712 * RATIO, height: 1200 * RATIO }}
             tw="text-6xl font-bold flex flex-col items-center justify-center text-center relative"
           >
             <div tw="absolute flex top-0 left-0">
-              <img alt="bg" height={920 * RATIO} width={620 * RATIO} src={`${url.origin}/assets/bg.png`} />
+              <img alt="bg" height={1200 * RATIO} width={712 * RATIO} src={`${url.origin}/assets/${background}.png`} />
             </div>
             <div
               style={{
                 zIndex: "50",
-                top: name.length <= 13 ? 140 * RATIO : 150 * RATIO,
+                bottom: name.length <= 13 ? 80 * RATIO : 90 * RATIO,
                 left: "50%",
                 transform: "translateX(-50%)",
               }}
@@ -37,9 +40,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             >
               <p
                 style={{
-                  fontSize: name.length <= 13 ? 64 * RATIO : 42 * RATIO,
+                  fontSize: name.length <= 13 ? 72 * RATIO : 64 * RATIO,
                 }}
-                tw="text-[#C697C5]"
+                tw="text-black"
               >
                 {name.length <= 18 ? name : name.slice(0, 18) + "..."}
               </p>

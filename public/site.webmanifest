@@ -1,0 +1,31 @@
+{
+    "short_name": "App",
+    "name": "Next.js Application",
+    "description": "Description",
+    "icons": [
+      {
+        "src": "/assets/meta/android-chrome-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/assets/meta/android-chrome-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "purpose": "any maskable",
+    "scope": "/",
+    "shortcuts": [
+      {
+        "name": "View page",
+        "short_name": "View",
+        "description": "View the index page",
+        "url": "/"
+      }
+    ]
+  }
+  

@@ -11,6 +11,23 @@ export default class Document extends NextDocument {
       <Html lang="th">
         <Head>
           <meta charSet="utf-8" />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/assets/meta/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/assets/meta/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/assets/meta/favicon-16x16.png" />
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TES038X0L"></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8TES038X0L', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />

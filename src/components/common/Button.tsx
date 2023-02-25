@@ -8,7 +8,7 @@ export function Button({
   onClick,
   className,
 }: {
-  type: "primary" | "secondary" | "white"
+  type: "primary" | "purple" | "white"
   children: ReactNode
   onClick?: MouseEventHandler<HTMLButtonElement>
   className?: string
@@ -19,9 +19,9 @@ export function Button({
       className={clsx(
         "rounded-2xl transition-colors duration-200",
         !className && "py-2 px-14",
-        type === "primary" && "bg-vlvu-pink-400 text-vlvu-pink-500 hover:bg-vlvu-pink-600 hover:text-white",
-        type === "secondary" && "bg-vlvu-pink-500 text-white hover:bg-vlvu-pink-600",
-        type === "white" && "bg-white text-vlvu-pink-500 hover:text-vlvu-pink-500 hover:bg-gray-100",
+        type === "primary" && "bg-pink-400 text-pink-500 hover:bg-pink-600 hover:text-white",
+        type === "purple" && "bg-[#5F207A] text-white hover:bg-[#832ca9]",
+        type === "white" && "bg-white text-black hover:text-gray-500 hover:bg-gray-100",
         className
       )}
     >
@@ -56,7 +56,7 @@ export function LinkButton({
         !className && "py-2 px-14",
         type === "primary" &&
         "bg-pink-400 text-pink-100 hover:bg-pink-500 hover:text-white hover:{children=value}",
-        type === "secondary" && "bg-pink-500 text-white hover:bg-pink-600",
+        type === "secondary" && "bg-transparent",
         type === "white" && "bg-white text-pink-500 hover:text-pink-500 hover:bg-gray-100",
         className
       )}>
@@ -64,3 +64,5 @@ export function LinkButton({
     </Link>
   )
 }
+
+

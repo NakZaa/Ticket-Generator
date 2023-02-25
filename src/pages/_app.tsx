@@ -5,8 +5,8 @@ import { DescribeRoute } from "@/components/Meta/DescribeRoute"
 import { AuthProvider } from "@/lib/auth"
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (<DescribeRoute title="Niti Ticket"
-    description="Make Tickets">
+  return (<DescribeRoute title="Law Chula Open House"
+    description="Faculty of Law Chulalongkorn University is having an Open House event. Come join us!">
     <AuthProvider>
       <Component {...pageProps} />
     </AuthProvider>

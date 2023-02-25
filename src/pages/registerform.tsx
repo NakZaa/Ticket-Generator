@@ -1,12 +1,14 @@
 import { useAuth } from "@/lib/auth"
-import { Formik, Form } from "formik"
-import faculties from "@/data/faculties"
+import { validateForm } from "@/lib/validate"
 import { TextField } from "@/components/common/TextField"
 import { SelectField } from "@/components/common/SelectField"
+import faculties from "@/data/faculties"
+
+import { Formik, Form } from "formik"
 import { useEffect } from "react"
-import { validateForm } from "@/lib/validate"
 import { AnimatePresence, motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 
 export default function RegisterForm() {
   const auth = useAuth()
@@ -27,13 +29,17 @@ export default function RegisterForm() {
     faculty,
     school,
     year,
+    syear,
+    background,
   }: {
     nickname: string
     name: string
     status: string
     faculty: string
-    school:string
+    school: string
     year: string
+    syear: string
+    background: string
   }) => {
     await auth.createUser({
       faculty,
@@ -42,6 +48,8 @@ export default function RegisterForm() {
       school,
       status: status as "participant" | "alumni" | "student",
       year: +year,
+      syear,
+      background: Math.floor(Math.random() * 3),
     })
   }
 
@@ -50,9 +58,10 @@ export default function RegisterForm() {
       <main className="text-vlvu-pink-300 mx-auto max-w-lg">
         <div className="flex flex-col items-center justify-center h-screen gap-6">
           <Formik
-            initialValues={{ nickname: "", name: "", status: "", faculty: "", school: "", year: "" }}
+            initialValues={{ nickname: "", name: "", status: "", faculty: "", school: "", year: "", syear: "", background: "", }}
             validate={validateForm}
             onSubmit={async (values, { setSubmitting }) => {
+
               setSubmitting(true)
 
               await handleSubmit(values)
@@ -74,7 +83,7 @@ export default function RegisterForm() {
                     ออกจากระบบ
                   </button>
                 </div>
-                <TextField fieldName="nickname" fieldLabel="ชื่อเล่น" placeholder="username" />
+                <TextField fieldName="nickname" fieldLabel="ชื่อที่ต้องการให้ระบุในตั๋ว" placeholder="username" />
                 <TextField fieldName="name" fieldLabel="ชื่อ-สกุล" placeholder="John Doe" />
                 <SelectField
                   fieldLabel="สถานภาพ"
@@ -129,24 +138,30 @@ export default function RegisterForm() {
                           placeholder="โรงเรียน"
                         />
                       </motion.div>
+                      <motion.div key="syear-motion" initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
+                        <SelectField
+                          fieldLabel="ระดับการศึกษา"
+                          fieldName="syear"
+                          options={[
+                            ["ประถมศึกษา", "primary school"],
+                            ["มัธยมศึกษาตอนต้น", "middle school"],
+                            ["มัธยมศึกษาตอนปลาย", "high school"],
+                            ["อื่น ๆ", "others"],
+                          ]}
+                          placeholder="ระดับชั้น"
+                          className="w-3/12"
+                        />
+                      </motion.div>
                     </AnimatePresence>
                   </>
                 )}
                 <button
                   type="submit"
                   disabled={isSubmitting || !auth?.credential}
-                  className="w-full mt-6 py-2 px-6 bg-pink-500 text-white transition-colors hover:bg-vlvu-pink-600 shadow-md rounded-xl"
+                  className="w-full mt-6 py-2 px-6 bg-[#5f207a] text-white transition-colors hover:bg-[#832ca9] shadow-md rounded-xl"
                 >
                   ถัดไป
                 </button>
-
-                <p className="text-center">
-                  การลงทะเบียนถือว่าเป็นการยอมรับ
-                  <br />
-                  <Link href="/privacy-policy">
-                    <div className="underline hover:no-underline">ข้อตกลงและเงื่อนไขการใช้งาน</div>
-                  </Link>
-                </p>
               </Form>
             )}
           </Formik>
