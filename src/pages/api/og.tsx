@@ -5,7 +5,7 @@ export const config = {
   runtime: "experimental-edge",
 }
 
-const RobotoSlab = fetch(new URL("../../fonts/RobotoSlab-Bold.ttf", import.meta.url)).then((res) => res.arrayBuffer())
+const TimesNewRoman = fetch(new URL("../../fonts/times-new-roman-bold.ttf", import.meta.url)).then((res) => res.arrayBuffer())
 
 const RATIO = 1.3
 
@@ -17,11 +17,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     console.log(name, background)
 
-    const RobotoSlabData = await RobotoSlab
+    const TimesNewRomanData = await TimesNewRoman
 
     return new ImageResponse(
       (
-        <div tw="bg-[#FFF2F4] flex justify-center items-center w-full h-full">
+        <div tw="flex justify-center items-center w-full h-full">
           <div
             style={{ fontFamily: "Roboto Slab", width: 712 * RATIO, height: 1200 * RATIO }}
             tw="text-6xl font-bold flex flex-col items-center justify-center text-center relative"
@@ -55,8 +55,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         height: 1920,
         fonts: [
           {
-            name: "Roboto Slab",
-            data: RobotoSlabData,
+            name: "Times New Roman",
+            data: TimesNewRomanData,
             weight: 600,
             style: "normal",
           },

@@ -54,7 +54,7 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className="bg-vlvu-pink-100 font-display min-h-screen w-full py-12">
+    <div className="bg-neutral-50 font-display min-h-screen w-full">
       <main className="text-vlvu-pink-300 mx-auto max-w-lg">
         <div className="flex flex-col items-center justify-center h-screen gap-6">
           <Formik
@@ -70,12 +70,10 @@ export default function RegisterForm() {
             }}
           >
             {({ isSubmitting, values }) => (
-              <Form className="flex flex-col gap-3 font-semibold text-vlvu-pink-500 w-full max-w-sm">
-                <div className="flex items-center gap-2 w-full">
-                  <p className="text-center">Logged in as {auth?.credential?.email}</p>
-
+              <Form className="flex flex-col gap-3 font-semibold text-[#5F207A] w-full max-w-sm">
+                <div className="flex items-center gap-2 w-full justify-end">
                   <button
-                    className="underline hover:no-underline"
+                    className="underline hover:no-underline text-red-400 "
                     onClick={() => {
                       auth?.signout("/register")
                     }}
@@ -83,8 +81,8 @@ export default function RegisterForm() {
                     ออกจากระบบ
                   </button>
                 </div>
-                <TextField fieldName="nickname" fieldLabel="ชื่อที่ต้องการให้ระบุในตั๋ว" placeholder="username" />
-                <TextField fieldName="name" fieldLabel="ชื่อ-สกุล" placeholder="John Doe" />
+                <TextField fieldName="nickname" fieldLabel="ชื่อที่ต้องการให้ระบุในตั๋ว" placeholder="username" className="text-gray-800" />
+                <TextField fieldName="name" fieldLabel="ชื่อ-สกุล" placeholder="John Doe" className="text-gray-800" />
                 <SelectField
                   fieldLabel="สถานภาพ"
                   fieldName="status"
@@ -94,6 +92,7 @@ export default function RegisterForm() {
                     ["ศิษย์เก่า", "alumni"],
                   ]}
                   placeholder="เลือกสถานภาพ"
+                  className="text-gray-800"
                 />
                 {values.status === "student" && (
                   <>
@@ -105,6 +104,7 @@ export default function RegisterForm() {
                           fieldName="faculty"
                           options={faculties.map((faculty) => [faculty, faculty])}
                           placeholder="คณะ"
+                          className="text-gray-800"
                         />
                       </motion.div>
                       <motion.div key="year-motion" initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
@@ -121,7 +121,7 @@ export default function RegisterForm() {
                             ["6", "6"],
                           ]}
                           placeholder="ปี"
-                          className="w-3/12"
+                          className="w-3/12 text-gray-800"
                         />
                       </motion.div>
                     </AnimatePresence>
@@ -136,6 +136,7 @@ export default function RegisterForm() {
                           fieldLabel="โรงเรียน"
                           fieldName="school"
                           placeholder="โรงเรียน"
+                          className="text-gray-800"
                         />
                       </motion.div>
                       <motion.div key="syear-motion" initial={{ y: -20, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
@@ -149,7 +150,7 @@ export default function RegisterForm() {
                             ["อื่น ๆ", "others"],
                           ]}
                           placeholder="ระดับชั้น"
-                          className="w-3/12"
+                          className="w-3/12 text-gray-800"
                         />
                       </motion.div>
                     </AnimatePresence>

@@ -17,7 +17,7 @@ export default function Card() {
     }, [])
 
     return (
-        <div className="bg-white min-h-screen flex flex-col justify-center items-center pt-20 sm:pt-6 pb-20 font-display">
+        <div className="bg-neutral-50 min-h-screen flex flex-col justify-center items-center pt-20 sm:pt-6 pb-20 font-display">
             <div className="flex justify-end absolute top-0 w-full z-50 p-6">
                 <Button
                     onClick={() => {
@@ -49,7 +49,7 @@ export default function Card() {
                         // download from /api/og
                         const a = document.createElement("a")
                         a.href = `/api/og?name=${auth?.user?.nickname}&background=${auth?.user?.background}`
-                        a.download = "niti.png"
+                        a.download = "lawcuoph.png"
                         a.click()
                     }}
                     type="purple"

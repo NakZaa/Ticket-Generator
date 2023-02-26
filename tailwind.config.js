@@ -92,7 +92,7 @@ module.exports = {
         ...defaultTheme.fontFamily.sans,
       ],
       welcome: [
-      "Wild Horse",
+        "Times New Roman",
       ...defaultTheme.fontFamily.serif,
     ],
     },

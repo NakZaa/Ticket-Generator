@@ -13,7 +13,7 @@ export default function Register() {
   }, [])
 
   return (
-    <div className="bg-vlvu-pink-100 font-display min-h-screen w-full">
+    <div className="bg-neutral-50 font-display min-h-screen w-full">
       <main className="mx-auto max-w-lg">
         <div className="flex flex-col items-center justify-center h-screen gap-6">
           <div className="flex flex-col gap-3">

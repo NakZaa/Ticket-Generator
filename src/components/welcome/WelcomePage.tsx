@@ -3,7 +3,7 @@ import LCO from "@/images/LCO.png"
 import Image from "next/image"
 import { Dispatch, ReactNode, SetStateAction, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
-import { Button, LinkButton } from "../common/Button"
+import { LinkButton } from "../common/Button"
 
 const AnimationProps = {
   initial: { opacity: 0 },
@@ -49,17 +49,9 @@ export function PageRenderer({
           className="flex flex-col h-full justify-center items-center cursor-pointer font-welcome"
           onClick={() => setPage((page) => page + 1)}
         >
-          <button className="w-64  transition-opacity text-4xl leading-relaxed">
-            <div className="pb-16">
-              Getting<br />
-              deep into <br />
-              <p className="text-[#F59A23]">something</p>
-            </div>
-            <div>
-              Ending up<br />
-              somewhere<br />
-              <p className="text-[#7EC636]">strange</p>
-            </div>
+          <button className="transition-opacity text-4xl leading-relaxed max-w-sm">
+            <div className="pb-16">Getting deep into something</div>
+            <div>Ending up somewhere strange</div>
           </button>
         </div>
       )
@@ -67,12 +59,8 @@ export function PageRenderer({
     case 1: {
       return (
         <div className="flex flex-col h-full justify-center items-center cursor-pointer font-welcome" onClick={() => setPage(page + 1)}>
-          <p className="font-semibold text-center text-5xl leading-loose">
-            Greetings
-            <br />
-            from
-            <br />
-            <p className="text-[#7EC636]">Law Chula</p>
+          <p className=" text-center text-4xl leading-loose max-w-sm">
+            Greetings from <br />Law Chula
           </p>
         </div>
       )
@@ -80,23 +68,19 @@ export function PageRenderer({
     case 2: {
       return (
         <div className="flex flex-col h-full justify-center items-center cursor-pointer font-welcome" onClick={() => setPage(page + 1)}>
-          <p className="font-semibold text-center text-5xl leading-loose">
-            Down the
+          <p className=" text-center text-4xl leading-loose max-w-sm">
+            Down the Rabbit's Hole to
             <br />
-            Rabbit's
-            <br />
-            Hole to
-            <br />
-            <div className="flex flex-row gap-4"><p className="text-[#F59A23]">Legal</p><p className="text-[#F65363]">Land</p></div>
+            LEGAL LAND
           </p>
         </div>
       )
     }
     case 3: {
       return (
-        <LinkButton 
+        <LinkButton
           href="/card"
-          type="secondary" 
+          type="secondary"
           className="flex flex-col h-full justify-center items-center w-full cursor-pointer">
           <motion.div
             initial={{ scale: 0 }}

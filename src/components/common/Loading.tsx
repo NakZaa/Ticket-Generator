@@ -1,6 +1,6 @@
 export const Loading = () => {
     return (
-      <div className="bg-vlvu-pink-100 text-vlvu-pink-600 h-screen flex flex-col justify-center items-center">
+      <div className="bg-neutral-50 text-[#5F207A] h-screen flex flex-col justify-center items-center">
         <span>Loading...</span>
       </div>
     )

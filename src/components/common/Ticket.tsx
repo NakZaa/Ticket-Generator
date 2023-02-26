@@ -21,12 +21,12 @@ export function Ticket({ nickname, background }: { nickname: string; background:
   return (
     <div className="relative">
       <div
-        style={{ bottom: nickname.length <= 13 ? "3.65rem" : "3.8rem" }}
+        style={{ bottom: nickname.length <= 13 ? "3.35rem" : "3.5rem" }}
         className="absolute bottom-1 left-1/2 -translate-x-1/2 z-20 "
       >
         <p
           style={{ width: "15rem", fontSize: nickname.length <= 13 ? "1.9rem" : "1.45rem", lineHeight: "2.5rem" }}
-          className="text-black font-bold font-name text-center"
+          className="text-black font-bold font-welcome text-center"
         >
           {nickname.length <= 18 ? nickname : nickname.slice(0, 18) + "..."}
         </p>
