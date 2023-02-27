@@ -93,8 +93,11 @@ module.exports = {
       ],
       welcome: [
         "Times New Roman",
-      ...defaultTheme.fontFamily.serif,
     ],
+    wild: [
+      "Wild Horse",
+      ...defaultTheme.fontFamily.serif,
+    ]
     },
   },
   plugins: [require("@tailwindcss/typography")],

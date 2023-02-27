@@ -28,9 +28,25 @@
 }
 
 @font-face {
-  font-family: "Roboto Slab";
-  font-style: normal;
-  font-weight: 700;
+  font-family: "Times New Roman";
+  font-style: bold;
+  font-weight: 600;
   font-display: swap;
-  src: url("../fonts/RobotoSlab-Bold.woff2") format("woff2");
+  src: url("../fonts/times-new-roman-bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Times New Roman";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/times-new-roman.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Wild Horse";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/WildHorse.woff2") format("woff2");
 }

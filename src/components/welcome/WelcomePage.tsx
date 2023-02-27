@@ -1,4 +1,9 @@
 import LCO from "@/images/LCO.png"
+import Welcome from "@/images/welcome/WelcomeSign.png"
+import OneTop from "@/images/welcome/onetop.png"
+import OneBot from "@/images/welcome/onebot.png"
+import TwoTop from "@/images/welcome/twotop.png"
+import TwoBot from "@/images/welcome/twobot.png"
 
 import Image from "next/image"
 import { Dispatch, ReactNode, SetStateAction, useEffect, useRef } from "react"
@@ -49,9 +54,11 @@ export function PageRenderer({
           className="flex flex-col h-full justify-center items-center cursor-pointer font-welcome"
           onClick={() => setPage((page) => page + 1)}
         >
-          <button className="transition-opacity text-4xl leading-relaxed max-w-sm">
+          <button className="relative transition-opacity text-4xl leading-relaxed max-w-sm">
+            <div className="absolute -top-24 -left-5"><Image src={OneTop} alt="shooting stars" width="128" height="128" /></div>
             <div className="pb-16">Getting deep into something</div>
             <div>Ending up somewhere strange</div>
+            <div className="absolute -bottom-14 -right-4"><Image src={OneBot} alt="shooting stars" width="128" height="128" /></div>
           </button>
         </div>
       )
@@ -59,8 +66,10 @@ export function PageRenderer({
     case 1: {
       return (
         <div className="flex flex-col h-full justify-center items-center cursor-pointer font-welcome" onClick={() => setPage(page + 1)}>
-          <p className=" text-center text-4xl leading-loose max-w-sm">
+          <p className="relative text-center text-4xl leading-loose max-w-sm">
+            <div className="absolute -top-24 -left-10"><Image src={TwoTop} alt="shooting stars" width="128" height="128" /></div>
             Greetings from <br />Law Chula
+            <div className="absolute -bottom-16 right-8"><Image src={TwoBot} alt="shooting stars" width="128" height="128" /></div>
           </p>
         </div>
       )
@@ -68,11 +77,14 @@ export function PageRenderer({
     case 2: {
       return (
         <div className="flex flex-col h-full justify-center items-center cursor-pointer font-welcome" onClick={() => setPage(page + 1)}>
-          <p className=" text-center text-4xl leading-loose max-w-sm">
-            Down the Rabbit's Hole to
+          <p className=" text-center text-3xl leading-loose max-w-sm">
+            Down the Rabbit Hole to
             <br />
-            LEGAL LAND
+            <p className="font-wild">LEGAL LAND</p>
           </p>
+          <div>
+            <Image src={Welcome} alt="Law Chula Open House" width="128" height="128" className="pt-6" />
+          </div>
         </div>
       )
     }

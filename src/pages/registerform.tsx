@@ -55,8 +55,12 @@ export default function RegisterForm() {
 
   return (
     <div className="bg-neutral-50 font-display min-h-screen w-full">
-      <main className="text-vlvu-pink-300 mx-auto max-w-lg">
-        <div className="flex flex-col items-center justify-center h-screen gap-6">
+      <main className="text-[#5F207A] mx-auto max-w-lg">
+        <div className="flex flex-col items-center justify-center h-screen gap-6 px-6">
+          <div>
+            <Image src="/assets/LawOph.PNG" alt="Law Chula Open House logo" width="128" height="128" />
+          </div>
+          <h1 className="text-center text-3xl">Register</h1>
           <Formik
             initialValues={{ nickname: "", name: "", status: "", faculty: "", school: "", year: "", syear: "", background: "", }}
             validate={validateForm}
@@ -73,7 +77,7 @@ export default function RegisterForm() {
               <Form className="flex flex-col gap-3 font-semibold text-[#5F207A] w-full max-w-sm">
                 <div className="flex items-center gap-2 w-full justify-end">
                   <button
-                    className="underline hover:no-underline text-red-400 "
+                    className="underline hover:no-underline hover:text-[#832ca9] text-[#5F207A] "
                     onClick={() => {
                       auth?.signout("/register")
                     }}
@@ -81,8 +85,8 @@ export default function RegisterForm() {
                     ออกจากระบบ
                   </button>
                 </div>
-                <TextField fieldName="nickname" fieldLabel="ชื่อที่ต้องการให้ระบุในตั๋ว" placeholder="username" className="text-gray-800" />
                 <TextField fieldName="name" fieldLabel="ชื่อ-สกุล" placeholder="John Doe" className="text-gray-800" />
+                <TextField fieldName="nickname" fieldLabel="ชื่อที่ต้องการให้ระบุในตั๋ว" placeholder="username" className="text-gray-800" />
                 <SelectField
                   fieldLabel="สถานภาพ"
                   fieldName="status"
@@ -146,7 +150,9 @@ export default function RegisterForm() {
                           options={[
                             ["ประถมศึกษา", "primary school"],
                             ["มัธยมศึกษาตอนต้น", "middle school"],
-                            ["มัธยมศึกษาตอนปลาย", "high school"],
+                            ["ม.4", "M.4"],
+                            ["ม.5", "M.5"],
+                            ["ม.6", "M.6"],
                             ["อื่น ๆ", "others"],
                           ]}
                           placeholder="ระดับชั้น"
