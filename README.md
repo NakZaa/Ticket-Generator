@@ -8,4 +8,5 @@ Built with:
 - [@vercel/og](https://vercel.com/docs/concepts/functions/edge-functions/og-image-generation)
 
 Original [vlvu website](https://github.com/vidlovevidu-chula/vlvu-website)
+
 Edited by Nak

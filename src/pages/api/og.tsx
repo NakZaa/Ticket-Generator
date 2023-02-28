@@ -5,7 +5,17 @@ export const config = {
   runtime: "experimental-edge",
 }
 
-const TimesNewRoman = fetch(new URL("../../fonts/times-new-roman.ttf", import.meta.url)).then((res) => res.arrayBuffer())
+const TimesNewRoman = fetch(new URL("../../fonts/times-new-roman.ttf", import.meta.url)).then((res) =>
+  res.arrayBuffer()
+)
+
+// if (background === 0) {
+//   return "text-[#511317]"
+// } else if (background === 1) {
+//   return "text-[#3B1153]"
+// } else if (background === 2) {
+//   return "text-[#0E393D]"
+// }
 
 const RATIO = 1.3
 
@@ -40,9 +50,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             >
               <p
                 style={{
+                  color: background === "0" ? "#511317" : background === "1" ? "#3B1153" : "#0E393D",
                   fontSize: name.length <= 13 ? 72 * RATIO : 64 * RATIO,
                 }}
-                tw="text-black"
               >
                 {name.length <= 18 ? name : name.slice(0, 18) + "..."}
               </p>

@@ -48,21 +48,21 @@ export function LinkButton({
   onMouseLeave?: () => void
 }) {
   return (
-    <Link href={href} onMouseOver={onMouseOver}
+    <Link
+      href={href}
+      onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
       onClick={onClick}
       className={clsx(
         "rounded-2xl transition-colors duration-200 text-center",
         !className && "py-2 px-14",
-        type === "primary" &&
-        "bg-pink-400 text-pink-100 hover:bg-pink-500 hover:text-white hover:{children=value}",
+        type === "primary" && "bg-pink-400 text-pink-100 hover:bg-pink-500 hover:text-white hover:{children=value}",
         type === "secondary" && "bg-transparent",
         type === "white" && "bg-white text-pink-500 hover:text-pink-500 hover:bg-gray-100",
         className
-      )}>
+      )}
+    >
       {children}
     </Link>
   )
 }
-
-

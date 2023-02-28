@@ -62,10 +62,18 @@ export default function RegisterForm() {
           </div>
           <h1 className="text-center text-3xl">Register</h1>
           <Formik
-            initialValues={{ nickname: "", name: "", status: "", faculty: "", school: "", year: "", syear: "", background: "", }}
+            initialValues={{
+              nickname: "",
+              name: "",
+              status: "",
+              faculty: "",
+              school: "",
+              year: "",
+              syear: "",
+              background: "",
+            }}
             validate={validateForm}
             onSubmit={async (values, { setSubmitting }) => {
-
               setSubmitting(true)
 
               await handleSubmit(values)
@@ -77,7 +85,7 @@ export default function RegisterForm() {
               <Form className="flex flex-col gap-3 font-semibold text-[#5F207A] w-full max-w-sm">
                 <div className="flex items-center gap-2 w-full justify-end">
                   <button
-                    className="underline hover:no-underline hover:text-[#832ca9] text-[#5F207A] "
+                    className="underline hover:no-underline hover:text-[#832ca9] text-[#5F207A] transition-all"
                     onClick={() => {
                       auth?.signout("/register")
                     }}
@@ -86,7 +94,12 @@ export default function RegisterForm() {
                   </button>
                 </div>
                 <TextField fieldName="name" fieldLabel="ชื่อ-สกุล" placeholder="John Doe" className="text-gray-800" />
-                <TextField fieldName="nickname" fieldLabel="ชื่อที่ต้องการให้ระบุในตั๋ว" placeholder="username" className="text-gray-800" />
+                <TextField
+                  fieldName="nickname"
+                  fieldLabel="ชื่อที่ต้องการให้ระบุในตั๋ว"
+                  placeholder="username"
+                  className="text-gray-800"
+                />
                 <SelectField
                   fieldLabel="สถานภาพ"
                   fieldName="status"
@@ -165,7 +178,7 @@ export default function RegisterForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !auth?.credential}
-                  className="w-full mt-6 py-2 px-6 bg-[#5f207a] text-white transition-colors hover:bg-[#832ca9] shadow-md rounded-xl"
+                  className="w-full mt-6 py-2 px-6 bg-[#5f207a] text-white transition-colors hover:bg-[#832ca9] shadow-md rounded-xl "
                 >
                   ถัดไป
                 </button>

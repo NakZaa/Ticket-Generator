@@ -4,19 +4,26 @@ import green from "@/images/green.svg"
 
 import Image from "next/image"
 
-
 export function Ticket({ nickname, background }: { nickname: string; background: number }) {
-
   function BGImg() {
     if (background === 0) {
       return red
     } else if (background === 1) {
       return purple
-    } else if (background === 2){
+    } else if (background === 2) {
       return green
     }
   }
 
+  function TextColor() {
+    if (background === 0) {
+      return "text-[#511317]"
+    } else if (background === 1) {
+      return "text-[#3B1153]"
+    } else if (background === 2) {
+      return "text-[#0E393D]"
+    }
+  }
 
   return (
     <div className="relative">
@@ -26,7 +33,7 @@ export function Ticket({ nickname, background }: { nickname: string; background:
       >
         <p
           style={{ width: "15rem", fontSize: nickname.length <= 13 ? "1.9rem" : "1.45rem", lineHeight: "2.5rem" }}
-          className="text-black font-welcome text-center"
+          className={TextColor() + " font-welcome text-center"}
         >
           {nickname.length <= 18 ? nickname : nickname.slice(0, 18) + "..."}
         </p>
@@ -35,9 +42,7 @@ export function Ticket({ nickname, background }: { nickname: string; background:
       {/* width={624} height={1300} */}
       <Image src={BGImg()} alt="bg" />
 
-      <div style={{ right: "2.25rem", bottom: "4rem" }} className="absolute">
-
-      </div>
+      <div style={{ right: "2.25rem", bottom: "4rem" }} className="absolute"></div>
     </div>
   )
 }
