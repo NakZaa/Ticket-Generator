@@ -1,6 +1,7 @@
 import "@/styles/tailwind.css"
 import "@/styles/fonts.css"
 import type { AppProps } from "next/app"
+import { Analytics } from '@vercel/analytics/react';
 import { DescribeRoute } from "@/components/Meta/DescribeRoute"
 import { AuthProvider } from "@/lib/auth"
 function MyApp({ Component, pageProps }: AppProps) {
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     >
       <AuthProvider>
         <Component {...pageProps} />
+        <Analytics />
       </AuthProvider>
     </DescribeRoute>
   )
