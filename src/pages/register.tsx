@@ -31,7 +31,7 @@ export default function Register() {
           </div>
           <div className="absolute w-full flex justify-center bottom-12 left-1/2 -translate-x-1/2">
             <Link
-              href="https://github.com/vidlovevidu-chula/vlvu-website"
+              href="https://github.com/NakZaa/Ticket-Generator"
               target="_blank"
               className="flex items-center w-full justify-center gap-2 text-[#5F207A] hover:text-[#832ca9] transition-colors"
             >
@@ -42,7 +42,7 @@ export default function Register() {
                 />
               </svg>
               <span className="">Open Source on GitHub</span>
-              <span className="hidden">Edited by Nak</span>
+              <span className="hidden">Original by vlvu team</span>
             </Link>
           </div>
         </div>
