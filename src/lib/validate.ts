@@ -11,6 +11,14 @@ export const validateForm = (values: { [field: string]: string }) => {
     if (+values.year < 1 || +values.year > 6) {
       errors.year = "ชั้นปีไม่ถูกต้อง"
     }
+  } else if (values.status === "participant") {
+    if (values.school === "") {
+      errors.school = "กรุณาใส่โรงเรียน"
+    }
+
+    if (values.syear === "") {
+      errors.syear = "กรุณาเลือกชั้น"
+    }
   }
 
   if (values.name === "") {

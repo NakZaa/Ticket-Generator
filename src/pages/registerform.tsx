@@ -107,6 +107,7 @@ export default function RegisterForm() {
                     ["นักเรียน", "participant"],
                     ["นิสิตปัจจุบัน", "student"],
                     ["ศิษย์เก่า", "alumni"],
+                    ["อื่น ๆ", "other"],
                   ]}
                   placeholder="เลือกสถานภาพ"
                   className="text-gray-800"
